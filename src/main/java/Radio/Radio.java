@@ -1,27 +1,32 @@
 package Radio;
 
+import lombok.Data;
+
+@Data
+
 public class Radio {
     String fm;
-    int stationNumber;
-    int volume;
-    private int maxVolume;
-    private int minVolume;
-    private int maxStationNumber;
-    private int minStationNumber;
+    int stationNumber = 10;
+    int volume = 50;
+    private int maxVolume = 100;
+    private int minVolume = 0;
+    private int maxStationNumber = 10;
+    private int minStationNumber = 10;
     boolean on;
 
-    public String getFm() {
-        return fm;
+    public Radio(int maxVolume) {
+        this.maxVolume = maxVolume;
     }
 
-    public void setFm(String FM) {
+    public Radio(String fm, int maxStationNumber) {
         this.fm = fm;
+        this.maxStationNumber = maxStationNumber;
     }
 
     public void nextChanel() {
         if (stationNumber < maxStationNumber) {
-            stationNumber++; }
-        else {
+            stationNumber++;
+        } else {
             stationNumber = minStationNumber;
         }
     }
@@ -29,14 +34,9 @@ public class Radio {
     public void prevChanel() {
         if (stationNumber > minStationNumber) {
             stationNumber--;
-        }
-        else {
+        } else {
             stationNumber = maxStationNumber;
         }
-    }
-
-    public int getStationNumber() {
-        return stationNumber;
     }
 
     public void setStationNumber(int stationNumber) {
@@ -66,10 +66,6 @@ public class Radio {
         }
     }
 
-    public int getVolume() {
-        return volume;
-    }
-
     public void setVolume(int volume) {
 
         if (volume > maxVolume) {
@@ -81,38 +77,8 @@ public class Radio {
         }
         this.volume = volume;
     }
-
-    public int getMaxVolume() {
-        return maxVolume;
-    }
-
-    public void setMaxVolume(int maxVolume) {
-        this.maxVolume = maxVolume;
-    }
-
-    public int getMinVolume() {
-        return minVolume;
-    }
-
-    public void setMinVolume(int minVolume) {
-        this.minVolume = minVolume;
-    }
-
-    public int getMaxStationNumber() {
-        return maxStationNumber;
-    }
-
-    public void setMaxStationNumber(int maxStationNumber) {
-        this.maxStationNumber = maxStationNumber;
-    }
-
-    public int getMinStationNumber() {
-        return minStationNumber;
-    }
-
-    public void setMinStationNumber(int minStationNumber) {
-        this.minStationNumber = minStationNumber;
-    }
-
-
 }
+
+
+
+
